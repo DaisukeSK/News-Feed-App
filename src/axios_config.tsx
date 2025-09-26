@@ -6,11 +6,11 @@ const app = axios.create({
   baseURL: "http://localhost:5173",
   headers: {
     "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Headers": "Content-Type",
-    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-    "Content-Type": "application/json",
+    // "Access-Control-Allow-Headers": "Content-Type",
+    // "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+    // "Content-Type": "application/json",
   },
-  withCredentials: true,
+  // withCredentials: true,
 });
 
 export default app;
