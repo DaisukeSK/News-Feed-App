@@ -9,7 +9,7 @@ import ArticleList from "./Pages/ArticleList.tsx";
 import Header from "./Pages/Header.tsx";
 import Unavailable from "./Pages/Unavailable.tsx";
 // import dummyJson from '../ignore/dummy.json'
-import axios2 from "./axios_config.tsx";
+// import axios2 from "./axios_config.tsx";
 
 export type NewsArticleType = {
   content: string;
@@ -69,8 +69,7 @@ function App() {
       {
         headers: {
           "Access-Control-Allow-Origin": "*",
-          "Cache-Control": "no-cache",
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
       }
     )
@@ -115,25 +114,22 @@ function App() {
       if (!s) {
         axios
           .all([
-            axios2.get(url1, {
+            axios.get(url1, {
               headers: {
                 "Access-Control-Allow-Origin": "*",
-                "Cache-Control": "no-cache",
-                "Content-Type": "application/x-www-form-urlencoded",
+                "Content-Type": "application/json",
               },
             }),
-            axios2.get(url2, {
+            axios.get(url2, {
               headers: {
                 "Access-Control-Allow-Origin": "*",
-                "Cache-Control": "no-cache",
-                "Content-Type": "application/x-www-form-urlencoded",
+                "Content-Type": "application/json",
               },
             }),
-            axios2.get(url3, {
+            axios.get(url3, {
               headers: {
                 "Access-Control-Allow-Origin": "*",
-                "Cache-Control": "no-cache",
-                "Content-Type": "application/x-www-form-urlencoded",
+                "Content-Type": "application/json",
               },
             }),
           ])
@@ -159,7 +155,12 @@ function App() {
           });
       } else {
         axios
-          .get(url1)
+          .get(url1, {
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Content-Type": "application/json",
+            },
+          })
           .then((obj1) => {
             setLoading(false);
             setUnavailable(false);
