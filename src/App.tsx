@@ -63,9 +63,16 @@ function App() {
 
   const dummy: boolean = false;
 
-  axios2
+  axios
     .get(
-      "https://gnews.io/api/v4/top-headlines?lang=en&category=business&apikey=5ff8585f9ec438acfacef3cea3ba6587"
+      "https://gnews.io/api/v4/top-headlines?lang=en&category=business&apikey=5ff8585f9ec438acfacef3cea3ba6587",
+      {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Cache-Control": "no-cache",
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
     )
     .then(function (response) {
       console.log("res", response);
