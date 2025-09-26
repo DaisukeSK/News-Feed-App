@@ -3,6 +3,7 @@ import axios from "axios";
 
 const app = axios.create({
   // baseURL: baseUrl,
+  baseURL: "http://localhost:5173",
   headers: {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "Content-Type",
