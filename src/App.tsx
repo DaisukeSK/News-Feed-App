@@ -9,6 +9,7 @@ import ArticleList from "./Pages/ArticleList.tsx";
 import Header from "./Pages/Header.tsx";
 import Unavailable from "./Pages/Unavailable.tsx";
 // import dummyJson from '../ignore/dummy.json'
+import axios2 from "./axios_config.tsx";
 
 export type NewsArticleType = {
   content: string;
@@ -62,7 +63,7 @@ function App() {
 
   const dummy: boolean = false;
 
-  axios
+  axios2
     .get(
       "https://gnews.io/api/v4/top-headlines?lang=en&category=business&apikey=5ff8585f9ec438acfacef3cea3ba6587"
     )
@@ -106,7 +107,7 @@ function App() {
 
       if (!s) {
         axios
-          .all([axios.get(url1), axios.get(url2), axios.get(url3)])
+          .all([axios2.get(url1), axios2.get(url2), axios2.get(url3)])
           .then(
             axios.spread((obj1, obj2, obj3) => {
               setLoading(false);
