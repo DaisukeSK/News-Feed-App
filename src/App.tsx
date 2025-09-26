@@ -114,7 +114,29 @@ function App() {
 
       if (!s) {
         axios
-          .all([axios2.get(url1), axios2.get(url2), axios2.get(url3)])
+          .all([
+            axios2.get(url1, {
+              headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Cache-Control": "no-cache",
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+            }),
+            axios2.get(url2, {
+              headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Cache-Control": "no-cache",
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+            }),
+            axios2.get(url3, {
+              headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Cache-Control": "no-cache",
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+            }),
+          ])
           .then(
             axios.spread((obj1, obj2, obj3) => {
               setLoading(false);
