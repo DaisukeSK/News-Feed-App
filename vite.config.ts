@@ -3,15 +3,14 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [react()],
   server: {
-    cors: false,
     proxy: {
-      "/random_joke": {
-        target: "*",
+      "/proxy": {
+        target: "https://dnn-2024.vercel.app/",
         changeOrigin: true,
-        secure: false,
+        rewrite: (path) => path.replace(/^\/proxy/, ""),
       },
     },
   },
-  plugins: [react()],
 });
