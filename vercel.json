@@ -5,15 +5,15 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://dnn-2024.vercel.app/"
+          "value": "*"
         },
         {
           "key": "Access-Control-Allow-Methods",
-          "value": "GET, POST, OPTIONS"
+          "value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
         },
         {
           "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type, Authorization"
+          "value": "Content-Type, Authorization, X-CSRF-Token"
         },
         { "key": "Access-Control-Allow-Credentials", "value": "true" }
       ]
