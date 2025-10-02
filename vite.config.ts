@@ -6,10 +6,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/proxy": {
+      "/api": {
         target: "https://dnn-2024.vercel.app/",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/proxy/, ""),
+        rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },
