@@ -1,3 +1,5 @@
+import express from "express";
+import cors from "cors";
 import { useState, createContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
@@ -30,6 +32,8 @@ type contextType = {
 export const context = createContext<contextType>({} as contextType);
 
 function App() {
+  const app = express();
+  app.use(cors());
   const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
   const [unavailable, setUnavailable] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
